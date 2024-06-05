@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Admin Dashboard</title>
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div class="grid-container" id="Dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+            <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <button id="filterDataButton">Filter Data</button>
+                <div id="filterControlPanel" style="display:none;">
+                    <span class="close-icon" id="closeFilterPanel">&times;</span>
+                    <label for="monthSelect">Select Month:</label>
+                    <select id="monthSelect">
+                        <option value="All">All</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    <button id="filterButton">Submit</button>
+                </div>
+            </div>
+            <div class="header-right">
+            <span class="material-icons-outlined">notifications</span>
+            <span class="material-icons-outlined">email</span>
+            <span class="material-icons-outlined">account_circle</span>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+            <div class="sidebar-brand">
+                <span class="material-icons-outlined">inventory</span> Report Sales 2015
+            </div>
+            <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+                <a href="profile.html" target="_blank">
+                <span class="material-icons-outlined">account_circle</span> Profile
+                </a>
+            </li>
+            </ul>
+            
+            <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+                <a href="#Dashboard" target="_blank">
+                <span class="material-icons-outlined">dashboard</span> Dashboard
+                </a>
+            </li>
+            </ul>
+            
+        </aside>
+        <!-- End Sidebar -->
+
+            <main class="main-container" id="dashboard">
+                <div class="main-title">
+                    <p class="font-weight-bold">DASHBOARD</p>
+                  </div>
+            
+
+            
+                <div class="main-cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="Number card-score-revenue">$ 0</div>
+                            <div>Revenue</div>
+                            <span class="material-icons-outlined text-blue">poll</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="Number card-score-pizzasold">0</div>
+                            <div>Pizza Sold</div>
+                            <span class="material-icons-outlined text-orange">add_shopping_cart</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">32</div>
+                            <div class="card-score-menu">Menu Off Pizza</div>
+                            <span class="material-icons-outlined text-green">menu</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">96</div>
+                            <div class="card-score-varian">Varian Off Pizza</div>
+                            <span class="material-icons-outlined text-red">checklist</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">$37 - $39</div>
+                            <div class="card-score-atv">ATV Per Month</div>
+                            <span class="material-icons-outlined text-grey">stacked_line_chart</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts" id="home">
+                    <div class="chart">
+                        <div class="chart-inner">
+                            <h2>Sales Growth 2015</h2>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-outer">
+                        <div class="Sales-chart" id="doughnut-chart">
+                            <h2>Sales By Size</h2>
+                            <canvas id="Size"></canvas>
+                        </div>
+                        <div class="Top-chart" id="Bar-chart">
+                            <h2>Top 5 Best-Seller</h2>
+                            <canvas id="BarChart"></canvas>
+                        </div>
+                        <div class="Peak-chart" id="Bar-chart">
+                            <h2>Top 5 Peak Hours</h2>
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                        <div class="Buttom-chart" id="Bar-chart">
+                            <h2>Bottom 5 Non-BestSeller</h2>
+                            <canvas id="Bar-chart1" width="100px" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <h2>Pizza Menu Data</h2>
+                    <label for="categoryFilter">Filter by Category:</label>
+                    <select id="categoryFilter">
+                        <option value="All">All</option>
+                        <option value="Bestseller">Bestseller</option>
+                        <option value="Favorit">Favorit</option>
+                        <option value="Standar">Standar</option>
+                        <option value="Non-Bestseller">Non-Bestseller</option>
+                    </select>
+                    <button id="sortButton">Sorting</button>
+                    <button id="resetButton">Reset Sorting</button>
+                    <table id="pizzaTable">
+                        <thead>
+                            <tr>
+                                <th id="nameHeader">Name of Pizza Menus</th>
+                                <th id="quantityHeader">Quantity</th>
+                                <th>Categories</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="feedback">
+                    <div class="wrapper">
+                        <p class="text">How Would You Rate This App?</p>
+                        <div class="emoji">
+                            <div>😣</div>
+                            <div>🙁</div>
+                            <div>🙂</div>
+                            <div>😃</div>
+                            <div>😍</div>
+                        </div>
+                    </div>
+            
+                    <textarea class="textarea" cols="30" rows="3" placeholder="Write Your Opinion!"></textarea>
+                    <a href="#" class="btn">Send</a>
+                    <a href="#" class="btn">Send</a>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+    <script src="feedback.js"></script>
+</body>
+</html>
