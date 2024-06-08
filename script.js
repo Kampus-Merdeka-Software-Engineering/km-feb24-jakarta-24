@@ -22,14 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('table.json').then(response => response.json())
     ])
     .then(([data, topBottom, peakHours, salesGrowth, salesGrowthDay, sales, table]) => {
-        console.log('Fetched data:', data);
-        console.log('Fetched topBottom data:', topBottom);
-        console.log('Fetched peakHours data:', peakHours);
-        console.log('Fetched salesGrowth data:', salesGrowth);
-        console.log('Fetched salesGrowthDay data:', salesGrowthDay);
-        console.log('Fetched sales data:', sales);
-        console.log('Fetched table data:', table);
-
         originalData = data;
         topBottomData = topBottom;
         peakHoursData = peakHours;
@@ -37,30 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         salesGrowthDayData = salesGrowthDay;
         salesData = sales;
         tableData = table;
-        unsortedTableData = table.slice().sort((a, b) => b.Quantity - a.Quantity);;
+        unsortedTableData = table.slice().sort((a, b) => b.Quantity - a.Quantity);
+
 
         renderCharts(originalData, topBottomData, peakHoursData, salesGrowthData);
         updateRevenueAndPizzaSold(salesData, 'All');
         populateTable(tableData);
-
-        console.log('Initialized salesGrowthDayData:', salesGrowthDayData);
     })
-    .catch(error => console.error('Error fetching data:', error));
-
-    const filterDataButton = document.getElementById('filterDataButton');
-    const filterControlPanel = document.getElementById('filterControlPanel');
+    
     const monthSelect = document.getElementById('monthSelect');
     const filterButton = document.getElementById('filterButton');
-    const closeFilterPanel = document.getElementById('closeFilterPanel');
-
-    filterDataButton.addEventListener('click', () => {
-        filterControlPanel.style.display = filterControlPanel.style.display === 'none' ? 'block' : 'none';
-    });
-
-    closeFilterPanel.addEventListener('click', () => {
-        filterControlPanel.style.display = 'none';
-    });
-    
 
     filterButton.addEventListener('click', () => {
         const selectedMonth = monthSelect.value;
@@ -69,12 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredPeakHoursData = filterDataByMonth(peakHoursData, selectedMonth, 'peakhours');
         const filteredSalesGrowthData = filterSalesGrowthDataByMonth(salesGrowthData, selectedMonth, salesGrowthDayData);
         const filteredTableData = filterDataByMonth(tableData, selectedMonth);
-
-        console.log(`Filtered data for month ${selectedMonth}:`, filteredData);
-        console.log(`Filtered top-bottom data for month ${selectedMonth}:`, filteredTopBottomData);
-        console.log(`Filtered peak hours data for month ${selectedMonth}:`, filteredPeakHoursData);
-        console.log(`Filtered sales growth data for month ${selectedMonth}:`, filteredSalesGrowthData);
-        console.log(`Filtered sales growth data for month ${selectedMonth}:`, filteredTableData);
 
         updateCharts(filteredData, filteredTopBottomData, filteredPeakHoursData, filteredSalesGrowthData);
         updateRevenueAndPizzaSold(salesData, selectedMonth);
@@ -97,12 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterSalesGrowthDataByMonth(salesGrowthData, month, salesGrowthDayData) {
-        console.log('filterSalesGrowthDataByMonth called with:', { salesGrowthData, month, salesGrowthDayData });
         if (month === 'All') {
             return salesGrowthData;
         }
         if (!salesGrowthDayData) {
-            console.error('salesGrowthDayData is undefined');
             return [];
         }
         return salesGrowthDayData.filter(item => {
@@ -127,45 +97,30 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBarChart1(barChart1, topBottomData);
     }
 
-
-
     function updateRevenueAndPizzaSold(data, month) {
-        console.log('updateRevenueAndPizzaSold called with month:', month);
-        console.log('Data received:', data);
-    
         let revenue = 0;
         let pizzaSold = 0;
     
         if (month === 'All') {
             data.forEach(item => {
-                console.log('Processing item:', item);
                 let itemRevenue = parseFloat(item.Revenue); // Menggunakan item.Revenue
                 let itemPizzaSold = parseInt(item['pizza sold']); // Menggunakan item['pizza sold']
                 if (!isNaN(itemRevenue) && !isNaN(itemPizzaSold)) {
                     revenue += itemRevenue;
                     pizzaSold += itemPizzaSold;
-                } else {
-                    console.warn('Invalid data for item:', item);
                 }
             });
         } else {
             const monthData = data.filter(item => item.Month === month); // Menggunakan item.Month
-            console.log('Filtered month data:', monthData);
             monthData.forEach(item => {
-                console.log('Processing item:', item);
                 let itemRevenue = parseFloat(item.Revenue); // Menggunakan item.Revenue
                 let itemPizzaSold = parseInt(item['pizza sold']); // Menggunakan item['pizza sold']
                 if (!isNaN(itemRevenue) && !isNaN(itemPizzaSold)) {
                     revenue += itemRevenue;
                     pizzaSold += itemPizzaSold;
-                } else {
-                    console.warn('Invalid data for item:', item);
                 }
             });
         }
-    
-        console.log('Calculated revenue:', revenue);
-        console.log('Calculated pizzaSold:', pizzaSold);
     
         const revenueElement = document.querySelector('.card-score-revenue');
         const pizzaSoldElement = document.querySelector('.card-score-pizzasold');
@@ -173,13 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (revenueElement && pizzaSoldElement) {
             revenueElement.textContent = `$ ${revenue.toFixed(2)}`;
             pizzaSoldElement.textContent = pizzaSold;
-        } else {
-            console.error('Elements .card-score-revenue or .card-score-pizzasold not found');
         }
     }
-    
-    
-
 
     //Sales Growth
     function renderLineChart(data) {
@@ -421,73 +371,60 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     function renderPieChart(peakHoursData) {
-        try {
-            if (!peakHoursData || peakHoursData.length === 0) {
-                console.error('Peak hours data is empty or invalid:', peakHoursData);
-                return;
-            }
-    
-            const ctx = document.getElementById('pieChart').getContext('2d');
-            const selectedMonth = monthSelect.value || 'All';
-            let top5PeakHours = [];
-    
-            if (selectedMonth === 'All') {
-                top5PeakHours = getTop5PeakHours(peakHoursData);
-            } else {
-                const monthData = peakHoursData.filter(item => item["Month"] === selectedMonth);
-                console.log('Filtered Month Data:', monthData);
-                if (monthData.length > 0) {
-                    top5PeakHours = getTop5PeakHours(monthData);
-                }
-            }
-    
-            console.log('Selected Month:', selectedMonth);
-            console.log('Top 5 Peak Hours:', top5PeakHours);
-    
-            if (top5PeakHours.length === 0) {
-                console.error('No peak hours data found for the selected criteria');
-                return;
-            }
-    
-            const peakHours = top5PeakHours.map(item => item["time-hour"]);
-            const quantities = top5PeakHours.map(item => parseInt(item["SUM of quantity"]));
-    
-            console.log('Peak Hours:', peakHours);
-            console.log('Quantities:', quantities);
-    
-            return new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: peakHours,
-                    datasets: [{
-                        label: 'Top 5 Peak Hours',
-                        data: quantities,
-                        backgroundColor: [
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)',
-                            'rgba(255, 227, 130, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        } catch (error) {
-            console.error('Error rendering pie chart:', error);
+        if (!peakHoursData || peakHoursData.length === 0) {
+            return;
         }
+
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        const selectedMonth = monthSelect.value || 'All';
+        let top5PeakHours = [];
+
+        if (selectedMonth === 'All') {
+            top5PeakHours = getTop5PeakHours(peakHoursData);
+        } else {
+            const monthData = peakHoursData.filter(item => item["Month"] === selectedMonth);
+            if (monthData.length > 0) {
+                top5PeakHours = getTop5PeakHours(monthData);
+            }
+        }
+
+        if (top5PeakHours.length === 0) {
+            return;
+        }
+
+        const peakHours = top5PeakHours.map(item => item["time-hour"]);
+        const quantities = top5PeakHours.map(item => parseInt(item["SUM of quantity"]));
+
+        return new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: peakHours,
+                datasets: [{
+                    label: 'Top 5 Peak Hours',
+                    data: quantities,
+                    backgroundColor: [
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)',
+                        'rgba(255, 227, 130, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
     }
     
     function getTop5PeakHours(data) {
@@ -507,40 +444,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function updatePieChart(chart, peakHoursData) {
-        try {
-            const selectedMonth = monthSelect.value || 'All';
-            console.log('updatePieChart called. Selected Month:', selectedMonth);
-            let top5PeakHours = [];
-    
-            if (selectedMonth === 'All') {
-                top5PeakHours = getTop5PeakHours(peakHoursData);
-            } else {
-                const monthData = peakHoursData.filter(item => item["Month"] === selectedMonth);
-                console.log('Filtered Month Data:', monthData);
-                if (monthData.length > 0) {
-                    top5PeakHours = getTop5PeakHours(monthData);
-                }
+        const selectedMonth = monthSelect.value || 'All';
+        let top5PeakHours = [];
+
+        if (selectedMonth === 'All') {
+            top5PeakHours = getTop5PeakHours(peakHoursData);
+        } else {
+            const monthData = peakHoursData.filter(item => item["Month"] === selectedMonth);
+            if (monthData.length > 0) {
+                top5PeakHours = getTop5PeakHours(monthData);
             }
-    
-            console.log('Top 5 Peak Hours:', top5PeakHours);
-    
-            if (top5PeakHours.length === 0) {
-                console.error('No peak hours data found for the selected criteria');
-                return;
-            }
-    
-            const peakHours = top5PeakHours.map(item => item["time-hour"]);
-            const quantities = top5PeakHours.map(item => parseInt(item["SUM of quantity"]));
-    
-            console.log('Peak Hours:', peakHours);
-            console.log('Quantities:', quantities);
-    
-            chart.data.labels = peakHours;
-            chart.data.datasets[0].data = quantities;
-            chart.update();
-        } catch (error) {
-            console.error('Error updating pie chart:', error);
         }
+
+        if (top5PeakHours.length === 0) {
+            return;
+        }
+
+        const peakHours = top5PeakHours.map(item => item["time-hour"]);
+        const quantities = top5PeakHours.map(item => parseInt(item["SUM of quantity"]));
+    
+        chart.data.labels = peakHours;
+        chart.data.datasets[0].data = quantities;
+        chart.update();
     }
     
     
@@ -756,3 +681,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+let sidebarOpen = false;
+const sidebar = document.getElementById('sidebar');
+
+function openSidebar() {
+    if (!sidebarOpen) {
+      sidebar.classList.add('sidebar-responsive');
+      sidebarOpen = true;
+    }
+  }
+  
+function closeSidebar() {
+    if (sidebarOpen) {
+      sidebar.classList.remove('sidebar-responsive');
+      sidebarOpen = false;
+    }
+  }

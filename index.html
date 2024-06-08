@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <title>Admin Dashboard</title>
+    <title>Dashboard Pizza</title>
+    <link rel="icon" type="image/x-icon" href="foto/pizzalogo.png">
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -17,12 +18,52 @@
         <!-- Header -->
         <header class="header">
             <div class="menu-icon" onclick="openSidebar()">
-            <span class="material-icons-outlined">menu</span>
+                <span class="material-icons-outlined">menu</span>
             </div>
-            <div class="header-left">
-                <button id="filterDataButton">Filter Data</button>
-                <div id="filterControlPanel" style="display:none;">
-                    <span class="close-icon" id="closeFilterPanel">&times;</span>
+            <div class="logo">
+                <img src="foto/revou.png" alt="Revou Logo" class="icon">
+                <img src="foto/km.png" alt="KM Logo" class="icon">
+                <img src="foto/pizzalogo.png" alt="Pizza Logo" class="icon">
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">inventory</span> Report Sales 2015
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" href="profile.html" target="_blank">
+                    <a href="profile.html" target="_blank">
+                        <span class="material-icons-outlined">account_circle</span> Profile
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="#Dashboard" target="_blank">
+                        <span class="material-icons-outlined">dashboard</span> Dashboard
+                    </a>
+                </li>
+            </ul>
+            
+            
+        </aside>
+        <!-- End Sidebar -->
+
+            <main class="main-container" id="dashboard">
+                <div class="main-title">
+                    <p class="font-weight-bold">DASHBOARD PIZZA PLACE SALES</p>
+                  </div>
+            
+                <!-- Filter -->
+                <div class="header-left">
                     <label for="monthSelect">Select Month:</label>
                     <select id="monthSelect">
                         <option value="All">All</option>
@@ -41,50 +82,6 @@
                     </select>
                     <button id="filterButton">Submit</button>
                 </div>
-            </div>
-            <div class="header-right">
-            <span class="material-icons-outlined">notifications</span>
-            <span class="material-icons-outlined">email</span>
-            <span class="material-icons-outlined">account_circle</span>
-            </div>
-        </header>
-        <!-- End Header -->
-
-        <!-- Sidebar -->
-        <aside id="sidebar">
-            <div class="sidebar-title">
-            <div class="sidebar-brand">
-                <span class="material-icons-outlined">inventory</span> Report Sales 2015
-            </div>
-            <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
-            </div>
-
-            <ul class="sidebar-list">
-            <li class="sidebar-list-item">
-                <a href="profile.html" target="_blank">
-                <span class="material-icons-outlined">account_circle</span> Profile
-                </a>
-            </li>
-            </ul>
-            
-            <ul class="sidebar-list">
-            <li class="sidebar-list-item">
-                <a href="#Dashboard" target="_blank">
-                <span class="material-icons-outlined">dashboard</span> Dashboard
-                </a>
-            </li>
-            </ul>
-            
-        </aside>
-        <!-- End Sidebar -->
-
-            <main class="main-container" id="dashboard">
-                <div class="main-title">
-                    <p class="font-weight-bold">DASHBOARD</p>
-                  </div>
-            
-
-            
                 <div class="main-cards">
                     <div class="card">
                         <div class="card-content">
@@ -175,7 +172,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="feedback">
+                <div class="container">
                     <div class="wrapper">
                         <p class="text">How Would You Rate This App?</p>
                         <div class="emoji">
@@ -187,9 +184,9 @@
                         </div>
                     </div>
             
-                    <textarea class="textarea" cols="30" rows="3" placeholder="Write Your Opinion!"></textarea>
-                    <a href="#" class="btn">Send</a>
-                    <a href="#" class="btn">Send</a>
+                    <textarea class="textarea" cols="30" rows="3" 
+                    placeholder="Write Your Opinion"></textarea>
+                <a href="#" class="btn" onclick="sendRating()">Send</a>
                 </div>
             </main>
         </div>
