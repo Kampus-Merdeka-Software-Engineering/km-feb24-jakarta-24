@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetching JSON files
     Promise.all([
-        fetch('datafull.json').then(response => response.json()),
-        fetch('topbottom.json').then(response => response.json()),
-        fetch('peakhours.json').then(response => response.json()),
-        fetch('salesgrowth.json').then(response => response.json()),
-        fetch('salesgrowthday.json').then(response => response.json()),
-        fetch('sales.json').then(response => response.json()),
-        fetch('table.json').then(response => response.json())
+        fetch('json/datafull.json').then(response => response.json()),
+        fetch('json/topbottom.json').then(response => response.json()),
+        fetch('json/peakhours.json').then(response => response.json()),
+        fetch('json/salesgrowth.json').then(response => response.json()),
+        fetch('json/salesgrowthday.json').then(response => response.json()),
+        fetch('json/sales.json').then(response => response.json()),
+        fetch('json/table.json').then(response => response.json())
     ])
     .then(([data, topBottom, peakHours, salesGrowth, salesGrowthDay, sales, table]) => {
         originalData = data;
