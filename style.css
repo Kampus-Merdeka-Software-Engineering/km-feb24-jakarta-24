@@ -65,9 +65,6 @@ body {
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
   
-/* .header-left {
-    justify-content: center;
-} */
 .menu-icon {
     display: none;
 }
@@ -80,55 +77,55 @@ body {
 
 .logo .icon-revou {
     margin-top: 5px;
-    width: 45px; /* Atur lebar ikon */
-    height: 45px; /* Atur tinggi ikon */
+    width: 45px; 
+    height: 45px; 
 }
 
 .logo .icon-pizza {
-    width: 60px; /* Atur lebar ikon */
-    height: 60px; /* Atur tinggi ikon */
+    width: 60px; 
+    height: 60px; 
 }
 
 .logo .icon-km {
     margin-top: 17px;
-    width: 50px; /* Atur lebar ikon */
-    height: 30px; /* Atur tinggi ikon */
+    width: 50px; 
+    height: 30px; 
 }
 
 /* CSS for the Filter Data button */
 .header-left {
     align-self: flex-end;
-    margin-bottom: 20px; /* Menambahkan jarak ke bawah */
-    padding: 10px; /* Menambahkan padding untuk estetika */
+    margin-bottom: 20px; 
+    padding: 10px; 
     padding-left: 725px;
-    border-radius: 5px; /* Membuat sudut membulat */
-    color: #fff; /* Warna teks putih */
+    border-radius: 5px; 
+    color: #fff; 
 }
 
 .header-left label {
-    color: #000000; /* Warna teks label putih */
+    color: #000000; 
 }
 
 .header-left select {
-    margin-left: 10px; /* Menambahkan jarak antar elemen */
-    background-color: rgb(255, 255, 255); /* Warna latar belakang oranye */
-    color: #333; /* Warna teks abu-abu gelap */
-    border: none; /* Menghapus border default */
-    padding: 5px 10px; /* Menambahkan padding */
-    border-radius: 3px; /* Membuat sudut membulat */
+    margin-left: 10px; 
+    background-color: rgb(255, 255, 255); 
+    color: #333; 
+    border: none; 
+    padding: 5px 10px; 
+    border-radius: 3px; 
 }
 
 .header-left button {
-    margin-left: 10px; /* Menambahkan jarak antar elemen */
-    background-color: rgb(252, 252, 252); /* Warna latar belakang oranye */
-    color: #333; /* Warna teks abu-abu gelap */
-    border: none; /* Menghapus border default */
-    padding: 5px 10px; /* Menambahkan padding */
-    border-radius: 3px; /* Membuat sudut membulat */
+    margin-left: 10px; 
+    background-color: rgb(252, 252, 252); 
+    color: #333; 
+    border: none; 
+    padding: 5px 10px; 
+    border-radius: 3px; 
 }
 
 .header-left button:hover {
-    background-color: darkorange; /* Warna oranye gelap saat hover */
+    background-color: darkorange; 
 }
 
 
@@ -247,7 +244,7 @@ body {
     color: #9799ab;
     font-size: 24px;
     cursor: pointer;
-    display: none; /* Initially hidden */
+    display: none; 
 }
 
 .logo-sidebar {
@@ -256,8 +253,8 @@ body {
     padding-bottom: 0px;
 }
 .icon-pizza {
-    width: 150px; /* Atur lebar ikon */
-    height: 150px; /* Atur tinggi ikon */
+    width: 150px; 
+    height: 150px; 
 }
 
 .sidebar-title {
@@ -529,32 +526,32 @@ body {
 /* Gaya untuk kontainer tabel agar bisa di-scroll */
 /* Container styling */
 .table-container {
-    background-color: #fff; /* Dark background */
-    color: #fff; /* White text */
+    background-color: #fff; 
+    color: #fff; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow */
-    margin-top: 20px; /* Space above the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-top: 20px; 
 }
 
 /* Heading styling */
 .table-container h2 {
-    color: #ffa500; /* Orange text for the heading */
+    color: #ffa500; 
     margin-bottom: 20px;
 }
 
 /* Label styling */
 .table-container label {
-    color: #ffa500; /* Orange text for the label */
+    color: #ffa500; 
     font-weight: bold;
     margin-right: 10px;
 }
 
 /* Select dropdown styling */
 .table-container select {
-    background-color: #555; /* Darker background */
-    color: #fff; /* White text */
-    border: 1px solid #ffa500; /* Orange border */
+    background-color: #555; 
+    color: #fff; 
+    border: 1px solid #ffa500; 
     border-radius: 5px;
     padding: 10px;
     margin-right: 10px;
@@ -562,8 +559,8 @@ body {
 
 /* Button styling */
 .table-container button {
-    background-color: #ffa500; /* Orange background */
-    color: #333; /* Dark text */
+    background-color: #ffa500; 
+    color: #333; 
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -573,7 +570,7 @@ body {
 }
 
 .table-container button:hover {
-    background-color: #ff8c00; /* Darker orange on hover */
+    background-color: #ff8c00; 
 }
 
 /* Table styling */
@@ -585,18 +582,18 @@ body {
 
 .table-container th, 
 .table-container td {
-    border: 1px solid #ffa500; /* Orange border for table cells */
+    border: 1px solid #ffa500; 
     padding: 12px;
     text-align: left;
 }
 
 .table-container th {
-    background-color: #ffa500; /* Orange background for headers */
-    color: #333; /* Dark text */
+    background-color: #ffa500; 
+    color: #333; 
 }
 
 .table-container td {
-    background-color: #444; /* Slightly lighter background for table cells */
+    background-color: #444; 
 }
 
 /* Table header styling */
@@ -608,7 +605,7 @@ body {
 
 .table-container th#nameHeader:hover, 
 .table-container th#quantityHeader:hover {
-    background-color: #ff8c00; /* Darker orange on hover */
+    background-color: #ff8c00; 
 }
 
 /* Add styles for sorting indicator */
@@ -621,16 +618,16 @@ body {
     height: 0; 
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid #333; /* Default arrow color */
+    border-top: 5px solid #333; 
 }
 
 .table-container th.sorted-asc::after {
     border-top: 0;
-    border-bottom: 5px solid #333; /* Arrow for ascending order */
+    border-bottom: 5px solid #333; 
 }
 
 .table-container th.sorted-desc::after {
-    border-top: 5px solid #333; /* Arrow for descending order */
+    border-top: 5px solid #333; 
 }
 
 
@@ -656,13 +653,13 @@ body {
 }
 
 .monthSelect select:hover {
-    border-color: #ffb400; /* Slightly darker shade for hover */
-    background-color: #ffefcc; /* Light background color for hover */
+    border-color: #ffb400; 
+    background-color: #ffefcc; 
 }
 
 .monthSelect select:focus {
-    border-color: #ffa500; /* Slightly darker shade for focus */
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2); /* Add a subtle shadow for focus */
+    border-color: #ffa500; 
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2); 
 }
 
 
@@ -688,7 +685,7 @@ body {
 }
 
 .back-button {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
     display: inline-block;
@@ -699,7 +696,7 @@ body {
     text-decoration: none;
     color: #000000;
     font-size: 16px;
-    z-index: 9999; /* Pastikan elemen ini berada di depan */
+    z-index: 9999; 
 }
 
 .back-button:hover {
@@ -817,19 +814,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute; /* Mengubah dari relative ke absolute */
-    top: 0; /* Posisi di atas */
-    right: 0; /* Posisi di kanan */
-    width: 100%; /* Memastikan lebar 100% */
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    width: 100%; 
     margin-bottom: 250px;
 }
 
 .face {
-width: 100px; /* Mengubah ukuran wajah */
-height: 100px; /* Mengubah ukuran wajah */
-background-image: url('foto/Pizza_Place__6_-removebg-preview.png'); /* Ganti path_to_your_pizza_image.png dengan path gambar pizza Anda */
-background-size: cover; /* Menyesuaikan ukuran gambar agar sesuai dengan elemen */
-border-radius: 50%; /* Membuat bentuk lingkaran */
+width: 100px; 
+height: 100px; 
+background-image: url('foto/Pizza_Place__6_-removebg-preview.png'); 
+background-size: cover; 
+border-radius: 50%; 
 position: relative;
 margin-left: 370px;
 margin-top: 100px;
@@ -909,7 +906,7 @@ left: calc(50% - 1px);
 
 
 /* Medium <= 992px */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 800px) {
     .grid-container {
       grid-template-columns: 1fr;
       grid-template-rows: 0.2fr 3fr;
@@ -930,16 +927,28 @@ left: calc(50% - 1px);
     .sidebar-title > span {
       display: inline;
     }
-  }
-  
-  /* Small <= 768px */
-  @media screen and (max-width: 768px) {
+
+    .header-left {
+        position: relative;
+        margin-right: 10px;
+        margin-bottom: 20px; 
+        padding: 10px; 
+        border-radius: 5px; 
+        color: #fff; 
+    }
+    
     .main-cards {
       grid-template-columns: 1fr;
       gap: 10px;
       margin-bottom: 0;
     }
   
+    .logo {
+        display: flex;
+        gap: 30px;
+        padding-left: 100px;
+    }
+
     .charts {
       display: block;
       grid-template-columns: 1fr;
@@ -949,12 +958,117 @@ left: calc(50% - 1px);
     .charts .chart-outer, .Buttom-chart, .Top-chart, .Sales-chart, .Peak-chart {
         display: block;
         margin-top: 15px;
+        width: 100%;
     }
-  }
-  
-  /* Extra Small <= 576px */
-  @media screen and (max-width: 576px) {
-    .header-left {
-      display: none;
+
+    .table-container {
+        background-color: #fff; 
+        color: #fff; 
+        padding-left: 0px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        margin-top: 20px; 
+        margin-left: 0px;
+    }
+
+    .table-container table {
+        width: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .container-pizza {
+        height: 10vh;
+        display: flex;
+        position: absolute; 
+        top: 0; 
+        right: 100px;
+        width: 80%;
+        margin-bottom: 250px;
+    }
+
+    .face {
+        width: 50px;
+        height: 50px;
+        margin-top: 70px;
+        margin-left: 280px;
+    }
+
+    .eye {
+        width: 10px;
+        height: 20px;
+        border-radius: 100%;
+        background-color: #ffffff;
+        border: 2px solid #000000;
+        position: absolute;
+        top: -90px;
+        margin-top: 100px;
+        }
+        
+        .eye.left {
+        left: calc(50% - 12px);
+        }
+        
+        .eye.right {
+        right: calc(50% - 12px);
+        }
+        
+        .eye-black {
+        --size: 10px;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        background-color: #000000;
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - var(--size) / 2);
+        transform-origin: top;
+    }
+
+    .mouth {
+        --size: 5px;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        border: 2px solid #000000;
+        position: absolute;
+        left: calc(50% - var(--size) / 2);
+        background-color: #b13f54;
+        transform-origin: top;
+        transition: all 1s ease;
+        right: 3px;
+        margin-top: 40px;
+        }
+        
+        
+        .mouth::before {
+        content: "";
+        width: 2px;
+        height: 15px;
+        background-color: #000000;
+        position: absolute;
+        bottom: 100%;
+        left: calc(50% - 1px);
+        }
+
+    .main-profile .heading-profile{
+        font-size: 20px;
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #000000;
+        font-size: 10px;
+        z-index: 9999; 
     }
   }
