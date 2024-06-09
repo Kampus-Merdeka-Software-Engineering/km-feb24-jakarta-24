@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Dashboard Pizza</title>
-    <link rel="icon" type="image/x-icon" href="foto/pizzalogo.png">
+    <link rel="icon" type="image/x-icon" href="foto/Pizza_Place__5_-removebg-preview.png">
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 </head>
 <body>
     <div class="grid-container" id="Dashboard">
@@ -21,39 +22,46 @@
                 <span class="material-icons-outlined">menu</span>
             </div>
             <div class="logo">
-                <img src="foto/revou.png" alt="Revou Logo" class="icon">
-                <img src="foto/km.png" alt="KM Logo" class="icon">
-                <img src="foto/pizzalogo.png" alt="Pizza Logo" class="icon">
+                <img src="foto/revou.png" alt="Revou Logo" class="icon-revou">
+                <img src="foto/km.png" alt="KM Logo" class="icon-km">
+                <img src="foto/Pizza_Place__5_-removebg-preview.png" alt="Pizza Logo" class="icon-pizza">
             </div>
         </header>
         <!-- End Header -->
 
         <!-- Sidebar -->
         <aside id="sidebar">
+            <div class="logo-sidebar">
+                <img src="foto/Pizza_Place__4_-removebg-preview.png" alt="Pizza Logo" class="icon-pizza">
+            </div>
             <div class="sidebar-title">
                 <div class="sidebar-brand">
                     <span class="material-icons-outlined">inventory</span> Report Sales 2015
                 </div>
                 <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
             </div>
-
             <ul class="sidebar-list">
-                <li class="sidebar-list-item" href="profile.html" target="_blank">
-                    <a href="profile.html" target="_blank">
+                <li class="sidebar-list-item">
+                    <a href="profile.html">
                         <span class="material-icons-outlined">account_circle</span> Profile
                     </a>
                 </li>
             </ul>
-            
             <ul class="sidebar-list">
-                <li class="sidebar-list-item">
-                    <a href="#Dashboard" target="_blank">
+                <li class="sidebar-list-item dropdown">
+                    <a href="#" class="dropdown-btn">
                         <span class="material-icons-outlined">dashboard</span> Dashboard
                     </a>
+                    <ul class="dropdown-container">
+                        <li><a href="#SalesGrowth2015">Sales Growth 2015</a></li>
+                        <li><a href="#SalesBySize">Sales by Size</a></li>
+                        <li><a href="#Top5BestSeller">Top 5 Best Seller</a></li>
+                        <li><a href="#Top5PeakHours">Top 5 Peak Hours</a></li>
+                        <li><a href="#Bottom5NonBestSeller">Bottom 5 Non-BestSeller</a></li>
+                        <li><a href="#PizzaMenuData">Pizza Menu Data</a></li>
+                    </ul>
                 </li>
             </ul>
-            
-            
         </aside>
         <!-- End Sidebar -->
 
@@ -121,33 +129,33 @@
                 </div>
 
                 <div class="charts" id="home">
-                    <div class="chart">
+                    <div class="chart" id="SalesGrowth2015">
                         <div class="chart-inner">
                             <h2>Sales Growth 2015</h2>
                             <canvas id="lineChart"></canvas>
                         </div>
                     </div>
-
+                
                     <div class="chart-outer">
-                        <div class="Sales-chart" id="doughnut-chart">
+                        <div class="Sales-chart" id="SalesBySize">
                             <h2>Sales By Size</h2>
                             <canvas id="Size"></canvas>
                         </div>
-                        <div class="Top-chart" id="Bar-chart">
+                        <div class="Top-chart" id="Top5BestSeller">
                             <h2>Top 5 Best-Seller</h2>
                             <canvas id="BarChart"></canvas>
                         </div>
-                        <div class="Peak-chart" id="Bar-chart">
+                        <div class="Peak-chart" id="Top5PeakHours">
                             <h2>Top 5 Peak Hours</h2>
                             <canvas id="pieChart"></canvas>
                         </div>
-                        <div class="Buttom-chart" id="Bar-chart">
+                        <div class="Buttom-chart" id="Bottom5NonBestSeller">
                             <h2>Bottom 5 Non-BestSeller</h2>
                             <canvas id="Bar-chart1" width="100px" height="50"></canvas>
                         </div>
                     </div>
                 </div>
-                <div class="table-container">
+                <div class="table-container" id="PizzaMenuData">
                     <h2>Pizza Menu Data</h2>
                     <label for="categoryFilter">Filter by Category:</label>
                     <select id="categoryFilter">
@@ -183,10 +191,9 @@
                             <div>😍</div>
                         </div>
                     </div>
-            
                     <textarea class="textarea" cols="30" rows="3" 
                     placeholder="Write Your Opinion"></textarea>
-                <a href="#" class="btn" onclick="sendRating()">Send</a>
+                    <a href="#" class="btn" onclick="sendRating()">Send</a>
                 </div>
             </main>
         </div>

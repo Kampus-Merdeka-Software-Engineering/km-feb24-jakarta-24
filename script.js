@@ -697,4 +697,32 @@ function closeSidebar() {
       sidebar.classList.remove('sidebar-responsive');
       sidebarOpen = false;
     }
-  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Initialize smooth scroll polyfill
+    if ('scrollBehavior' in document.documentElement.style === false) {
+        import('https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4').then(module => {
+            module.polyfill();
+        })
+    }
+
+    // Toggle the dropdown menu
+    document.querySelectorAll('.dropdown-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            this.classList.toggle('active');
+            const dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    });
+});
+
+
+
+
+

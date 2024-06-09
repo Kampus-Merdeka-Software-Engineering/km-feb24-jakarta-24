@@ -48,6 +48,8 @@ body {
       "sidebar header header header"
       "sidebar main main main";
     height: 100vh;
+    flex: 1;
+    overflow-y: auto; /* Ensure the container can scroll */
 }
 
 /* ---------- HEADER ---------- */
@@ -76,10 +78,21 @@ body {
     padding-left: 835px;
 }
 
-.logo .icon {
+.logo .icon-revou {
+    margin-top: 5px;
     width: 45px; /* Atur lebar ikon */
     height: 45px; /* Atur tinggi ikon */
-    cursor: pointer;
+}
+
+.logo .icon-pizza {
+    width: 60px; /* Atur lebar ikon */
+    height: 60px; /* Atur tinggi ikon */
+}
+
+.logo .icon-km {
+    margin-top: 17px;
+    width: 50px; /* Atur lebar ikon */
+    height: 30px; /* Atur tinggi ikon */
 }
 
 /* CSS for the Filter Data button */
@@ -130,6 +143,7 @@ body {
     overflow: hidden;
     position: relative;
     margin: 0 auto;
+    margin-top: 10px;
 }
 
 .wrapper {
@@ -236,12 +250,21 @@ body {
     display: none; /* Initially hidden */
 }
 
+.logo-sidebar {
+    position:static;
+    margin-left: 50px;
+    padding-bottom: 0px;
+}
+.icon-pizza {
+    width: 150px; /* Atur lebar ikon */
+    height: 150px; /* Atur tinggi ikon */
+}
+
 .sidebar-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px 20px 20px;
-    margin-bottom: 30px;
+    padding: 2px 20px 2px 20px;
 }
   
 .sidebar-title > span {
@@ -269,7 +292,10 @@ body {
     cursor: pointer;
 }
   
-.sidebar-list-item > a {
+.sidebar-list-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     color: #9799ab;
 }
@@ -280,6 +306,38 @@ body {
     z-index: 12 !important;
 }
 
+/* ----------Sidebar Dashboard--------- */
+/* Existing styles */
+
+.sidebar-list .dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+.sidebar-list .dropdown-container a {
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    color: #b8b8b8;
+}
+
+.sidebar-list .dropdown-container a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+.sidebar-list-item .dropdown-btn.active::after {
+    content: '\25B2';
+    float: right;
+    margin-left: 5px;
+}
+
+.sidebar-list-item .dropdown-btn::after {
+    content: '\25BC';
+    float: right;
+    margin-left: 5px;
+}
 
 
 /* ---------- MAIN ---------- */
@@ -392,7 +450,6 @@ body {
     font-weight: 600;
     color: #000000;
 }
-
 
 .charts {
   display: grid;
@@ -625,10 +682,34 @@ body {
 	padding: 50px;
 }
 .main-profile .heading-profile{
-	font-size: 25px;
-	margin-bottom: 80px;
+	font-size: 50px;
 	position: relative;
+    margin-bottom: 50px;
 }
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    z-index: 9999; /* Pastikan elemen ini berada di depan */
+}
+
+.back-button:hover {
+    background-color: #f0f0f0;
+}
+
+.back-button i {
+    margin-right: 5px;
+}
+
 .heading-profile span{
 	color: rgb(238, 169, 19);
 }
@@ -730,7 +811,98 @@ body {
 	color: #fff;
 }
 
+/* ---------Animasi--------- */
+.container-pizza {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Mengubah dari relative ke absolute */
+    top: 0; /* Posisi di atas */
+    right: 0; /* Posisi di kanan */
+    width: 100%; /* Memastikan lebar 100% */
+    margin-bottom: 250px;
+}
 
+.face {
+width: 100px; /* Mengubah ukuran wajah */
+height: 100px; /* Mengubah ukuran wajah */
+background-image: url('foto/Pizza_Place__6_-removebg-preview.png'); /* Ganti path_to_your_pizza_image.png dengan path gambar pizza Anda */
+background-size: cover; /* Menyesuaikan ukuran gambar agar sesuai dengan elemen */
+border-radius: 50%; /* Membuat bentuk lingkaran */
+position: relative;
+margin-left: 370px;
+margin-top: 100px;
+}
+
+
+.eye {
+width: 10px;
+height: 20px;
+border-radius: 100%;
+background-color: #ffffff;
+border: 2px solid #000000;
+position: absolute;
+top: -75px;
+margin-top: 100px;
+}
+
+.eye.left {
+left: calc(50% - 20px);
+}
+
+.eye.right {
+right: calc(50% - 20px);
+}
+
+.eye-black {
+--size: 10px;
+width: var(--size);
+height: var(--size);
+border-radius: 50%;
+background-color: #000000;
+position: absolute;
+bottom: 0;
+left: calc(50% - var(--size) / 2);
+transform-origin: top;
+}
+
+.eye-black::after {
+content: "";
+--size: 10px;
+width: var(--size);
+height: var(--size);
+border-radius: 50%;
+position: absolute;
+left: 10px;
+top: calc(50% - 10px);
+}
+
+
+.mouth {
+--size: 10px;
+width: var(--size);
+height: var(--size);
+border-radius: 50%;
+border: 2px solid #000000;
+position: absolute;
+left: calc(50% - var(--size) / 2);
+background-color: #b13f54;
+transform-origin: top;
+transition: all 1s ease;
+margin-top: 80px;
+}
+
+
+.mouth::before {
+content: "";
+width: 2px;
+height: 30px;
+background-color: #000000;
+position: absolute;
+bottom: 100%;
+left: calc(50% - 1px);
+}
 
 
 /* ---------- MEDIA QUERIES ---------- */
