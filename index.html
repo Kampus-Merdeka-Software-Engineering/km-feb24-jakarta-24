@@ -156,17 +156,22 @@
                     </div>
                 </div>
                 <div class="table-container" id="PizzaMenuData">
-                    <h2>Pizza Menu Data</h2>
-                    <label for="categoryFilter">Filter by Category:</label>
-                    <select id="categoryFilter">
-                        <option value="All">All</option>
-                        <option value="Bestseller">Bestseller</option>
-                        <option value="Favorit">Favorit</option>
-                        <option value="Standar">Standar</option>
-                        <option value="Non-Bestseller">Non-Bestseller</option>
-                    </select>
-                    <button id="sortButton">Sorting</button>
+
+                    <div class="filter-category">
+                        <h2>Pizza Menu Data</h2>
+                        <label for="categoryFilter">Filter by Category:</label>
+                        <select id="categoryFilter">
+                            <option value="All">All</option>
+                            <option value="Bestseller">Bestseller</option>
+                            <option value="Favorit">Favorit</option>
+                            <option value="Standar">Standar</option>
+                            <option value="Non-Bestseller">Non-Bestseller</option>
+                        </select>
+                        <button id="sortButton">Sorting</button>
+                        
                     <button id="resetButton">Reset Sorting</button>
+                    </div>
+
                     <table id="pizzaTable">
                         <thead>
                             <tr>
@@ -180,7 +185,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="container">
+                <!-- feedback -->
+                <!-- <div class="container">
                     <div class="wrapper">
                         <p class="text">How Would You Rate This App?</p>
                         <div class="emoji">
@@ -194,7 +200,7 @@
                     <textarea class="textarea" cols="30" rows="3" 
                     placeholder="Write Your Opinion"></textarea>
                     <a href="#" class="btn" onclick="sendRating()">Send</a>
-                </div>
+                </div> -->
             </main>
         </div>
     </div>

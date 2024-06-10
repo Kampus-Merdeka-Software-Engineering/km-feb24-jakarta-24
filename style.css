@@ -953,6 +953,7 @@ left: calc(50% - 1px);
       display: block;
       grid-template-columns: 1fr;
       margin-top: 15px;
+      padding: 0;
     }
 
     .charts .chart-outer, .Buttom-chart, .Top-chart, .Sales-chart, .Peak-chart {
@@ -971,10 +972,19 @@ left: calc(50% - 1px);
         margin-left: 0px;
     }
 
+    #SalesBySize{
+        margin-top: 0;
+    }
+
+    .filter-category{
+        margin-left: 20px;
+    }
+
     .table-container table {
         width: auto;
         border-collapse: collapse;
         margin-top: 20px;
+        margin-left: 20px;
     }
 
     .container-pizza {
